@@ -719,6 +719,7 @@ img {
 }
 
 /* Формы модалки */
+
 .form-header {
   display: inline-block;
   font-weight: 700;
@@ -726,19 +727,32 @@ img {
   line-height: 1.17;
   color: var(--secondary-color);
   text-align: center;
-
   margin-bottom: 12px;
+}
+
+.form-input:focus,
+.form-text:focus,
+.form-input:hover,
+.form-text:hover {
+  border-color: var(--blue-color);
+  outline: none;
+}
+
+.form-field-position {
+  position: relative;
 }
 
 .form-field {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-
-  position: relative;
 }
 
-.form-label {
+.check_box_form {
+  margin: 30px 0 20px 0;
+}
+
+.form-field-text {
   font-size: 12px;
   line-height: 1.16;
   letter-spacing: 0.01em;
@@ -747,7 +761,10 @@ img {
 
 .form-text {
   resize: none;
+  border: 1px solid rgba(33, 33, 33, 0.2);
   padding: 12px 16px;
+
+  transition: border 250ms var(--animation);
 }
 
 .form-icon {
@@ -755,6 +772,7 @@ img {
   position: absolute;
   top: 50%;
   left: 15px;
+  transform: translateY(-50%);
   transition: fill 250ms var(--animation);
 }
 
@@ -762,12 +780,29 @@ img {
   padding: 11px 0 11px 42px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
+
   width: 100%;
   transition: border 250ms var(--animation);
 }
 
+.check_box_label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1.71;
+  cursor: pointer;
+}
+
+.check_input {
+  position: absolute;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 .check_box {
-  display: block;
+  display: inline-block;
   width: 16px;
   height: 15px;
   background-color: var(--title-color);
@@ -778,14 +813,19 @@ img {
     border 250ms var(--animation), background-image 250ms var(--animation);
 }
 
-.сheck_box_label {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
-  line-height: 1.71;
-  cursor: pointer;
+/* выделенное */
+
+.check_input:checked ~ .check_box {
+  background-size: contain;
+  background-origin: border-box;
+  background-color: var(--blue-color);
+  border: 1px solid var(--blue-color);
+  background-image: url(../images/);
+
+  transition: background-image 250ms var(--animation);
 }
+
+/* кнопка отправки */
 
 .button-form {
   background-color: var(--blue-color);
@@ -804,6 +844,7 @@ img {
 
   border-radius: 4px;
   border: 1px solid transparent;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
   transition: background-color 250ms var(--animation),
     color 250ms var(--animation), border 250ms var(--animation);
