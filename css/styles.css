@@ -701,9 +701,8 @@ img {
 .close {
   color: var(--secondary-color);
   position: absolute;
-  right: 0;
-  top: 0;
-  margin: 8px 8px;
+  right: 8px;
+  top: 8px;
   cursor: pointer;
 
   background-color: var(--primary-color);
@@ -730,6 +729,10 @@ img {
   margin-bottom: 12px;
 }
 
+.form-input:focus + .form-icon {
+  fill: var(--blue-color);
+}
+
 .form-input:focus,
 .form-text:focus,
 .form-input:hover,
@@ -742,10 +745,14 @@ img {
   position: relative;
 }
 
+.position-field {
+  margin-bottom: 10px;
+}
+
 .form-field {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 .check_box_form {
@@ -785,6 +792,10 @@ img {
   transition: border 250ms var(--animation);
 }
 
+.input-field {
+  margin-bottom: 20px;
+}
+
 .check_box_label {
   display: flex;
   justify-content: center;
@@ -813,14 +824,14 @@ img {
     border 250ms var(--animation), background-image 250ms var(--animation);
 }
 
-/* выделенное */
+/* выделение галочки */
 
-.check_input:checked ~ .check_box {
+.check_input:checked + .check_box {
   background-size: contain;
   background-origin: border-box;
   background-color: var(--blue-color);
   border: 1px solid var(--blue-color);
-  background-image: url(../images/);
+  background-image: url(../images/icon\ check.svg);
 
   transition: background-image 250ms var(--animation);
 }
@@ -840,6 +851,7 @@ img {
   display: flex;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 30px;
   cursor: pointer;
 
   border-radius: 4px;
